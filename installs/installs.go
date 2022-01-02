@@ -11,8 +11,11 @@ func PrintInstall() {
 	currentCount := 0
 
 	for {
+		randomNum := rand.Intn(10)
+
 		for currentCount < maxCount {
 			sleepRate := time.Duration(rand.Intn(50))
+
 			if sleepRate == 0 {
 				continue
 			}
@@ -21,7 +24,13 @@ func PrintInstall() {
 			currentCount++
 			time.Sleep(time.Second / sleepRate)
 		}
+
 		fmt.Println(" Done!!")
+
+		if randomNum == 0 {
+			fmt.Println("Warning: This package is old version!!")
+			fmt.Println("You should install newer version!!")
+		}
 
 		if currentCount == 50 {
 			currentCount = 0
