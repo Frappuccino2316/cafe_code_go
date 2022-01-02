@@ -19,9 +19,12 @@ func PrintInstall() {
 
 			fmt.Print("#")
 			currentCount++
-
 			time.Sleep(time.Second / sleepRate)
 		}
 		fmt.Println(" Done!!")
+
+		if currentCount == 50 {
+			currentCount = 0
+		}
 	}
 }
