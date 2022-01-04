@@ -9,9 +9,16 @@ import (
 func PrintInstall() {
 	maxCount := 50
 	currentCount := 0
+	packageList := [...]string{"hoge", "fuga", "coffee-code", "go-package", "sample", "json-parset", "yokozuna", "kakamimochi", "ramen", "mac"}
+	alertMsg := `Warning: This package is old version!!
+	You should install newer version!!
+	`
 
 	for {
 		randomNum := rand.Intn(10)
+
+		fmt.Printf("go: downloading %s", packageList[randomNum])
+		fmt.Println("")
 
 		for currentCount < maxCount {
 			sleepRate := time.Duration(rand.Intn(50))
@@ -28,8 +35,7 @@ func PrintInstall() {
 		fmt.Println(" Done!!")
 
 		if randomNum == 0 {
-			fmt.Println("Warning: This package is old version!!")
-			fmt.Println("You should install newer version!!")
+			fmt.Printf("%s", alertMsg)
 		}
 
 		if currentCount == 50 {
